@@ -18,7 +18,7 @@
 
 ## 文件说明
 
-- `nmap_dns_scanner.py` - 主扫描脚本（使用python-nmap库）
+- `nmapScanHelper.py` - 主扫描脚本（使用python-nmap库）
 - `config.py` - 扫描配置文件
 - `networks.txt` - 网段配置文件（每行一个网段）
 - `result_port_{port}.csv` - 扫描结果输出文件（根据端口号动态命名）
@@ -64,76 +64,76 @@ pip3 install python-nmap
 #### 基本用法
 ```bash
 # 默认扫描DNS端口（53）
-python3 nmap_dns_scanner.py
+python3 nmapScanHelper.py
 
 # 扫描指定端口
-python3 nmap_dns_scanner.py --port 80
+python3 nmapScanHelper.py --port 80
 
 # 查看帮助
-python3 nmap_dns_scanner.py --help
+python3 nmapScanHelper.py --help
 ```
 
 #### 常用端口扫描示例
 ```bash
 # 扫描DNS端口
-python3 nmap_dns_scanner.py --port 53
+python3 nmapScanHelper.py --port 53
 
 # 扫描HTTP端口
-python3 nmap_dns_scanner.py --port 80
+python3 nmapScanHelper.py --port 80
 
 # 扫描HTTPS端口
-python3 nmap_dns_scanner.py --port 443
+python3 nmapScanHelper.py --port 443
 
 # 扫描SSH端口
-python3 nmap_dns_scanner.py --port 22
+python3 nmapScanHelper.py --port 22
 
 # 扫描FTP端口
-python3 nmap_dns_scanner.py --port 21
+python3 nmapScanHelper.py --port 21
 ```
 
 #### 扫描模式
 ```bash
 # 隐蔽扫描模式（慢速，不易被发现）
-python3 nmap_dns_scanner.py --port 80 --mode stealth
+python3 nmapScanHelper.py --port 80 --mode stealth
 
 # 快速扫描模式
-python3 nmap_dns_scanner.py --port 443 --mode aggressive
+python3 nmapScanHelper.py --port 443 --mode aggressive
 
 # 综合扫描模式
-python3 nmap_dns_scanner.py --port 22 --mode comprehensive
+python3 nmapScanHelper.py --port 22 --mode comprehensive
 ```
 
 #### 特殊环境模式
 ```bash
 # 防火墙绕过模式
-python3 nmap_dns_scanner.py --port 80 --special-env firewall_bypass
+python3 nmapScanHelper.py --port 80 --special-env firewall_bypass
 
 # 快速扫描模式
-python3 nmap_dns_scanner.py --port 443 --special-env fast_scan
+python3 nmapScanHelper.py --port 443 --special-env fast_scan
 
 # 静默扫描模式
-python3 nmap_dns_scanner.py --port 22 --special-env quiet_scan
+python3 nmapScanHelper.py --port 22 --special-env quiet_scan
 ```
 
 #### 选择性扫描
 ```bash
 # 仅TCP扫描
-python3 nmap_dns_scanner.py --port 80 --tcp-only
+python3 nmapScanHelper.py --port 80 --tcp-only
 
 # 仅UDP扫描
-python3 nmap_dns_scanner.py --port 53 --udp-only
+python3 nmapScanHelper.py --port 53 --udp-only
 
 # 跳过主机发现
-python3 nmap_dns_scanner.py --port 443 --no-discovery
+python3 nmapScanHelper.py --port 443 --no-discovery
 ```
 
 #### 自定义文件
 ```bash
 # 指定网段文件和输出文件
-python3 nmap_dns_scanner.py --port 8080 -f custom_networks.txt -o custom_results.csv
+python3 nmapScanHelper.py --port 8080 -f custom_networks.txt -o custom_results.csv
 
 # 使用默认输出文件名（自动根据端口号命名）
-python3 nmap_dns_scanner.py --port 3306  # 输出到 result_port_3306.csv
+python3 nmapScanHelper.py --port 3306  # 输出到 result_port_3306.csv
 ```
 
 ### 4. 查看结果
